@@ -1,5 +1,6 @@
 package cinema.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -14,10 +15,9 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @ManyToOne(fetch = FetchType.LAZY)
+    @Column(name = "movie_session_id")
     private MovieSession movieSession;
-
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
